@@ -38,7 +38,7 @@ public enum ElementalType {
     
     /**
      * 
-     * @return the id of the ElementalType
+     * @return Returns the id of the ElementalType
      */
     public int getId() {
         return id;
@@ -46,7 +46,7 @@ public enum ElementalType {
 
     /**
      * 
-     * @return the name of the ElementalType
+     * @return Returns the name of the ElementalType
      */
     public String getName() {
         return name;
