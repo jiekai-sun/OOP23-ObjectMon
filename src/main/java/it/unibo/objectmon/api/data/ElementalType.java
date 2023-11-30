@@ -38,7 +38,7 @@ public enum ElementalType {
     
     /**
      * 
-     * @return the id of the Type
+     * @return the id of the ElementalType
      */
     public int getId() {
         return id;
@@ -46,13 +46,18 @@ public enum ElementalType {
 
     /**
      * 
-     * @return the name of the Type
+     * @return the name of the ElementalType
      */
     public String getName() {
         return name;
     }
 
-
+    /**
+     * 
+     * @param attackerType  id of the ElementalType of the move used by the attacking Objectmon
+     * @param defenderType  id of the ElementalType of the defending Objectmon
+     * @return  the multiplier applied for that type combination
+     */
     public double typeMultiplier(final int attackerType, final int defenderType){
         return this.typeChart[attackerType][defenderType].getValue();
     }
