@@ -9,15 +9,28 @@ public enum Multiplier {
     private final double value;
     private final String name;
 
+    /**
+     * 
+     * @param value Value of the multiplier used to determine the effectivness of a Skill against a certain Objectmon with a certain Tyoe
+     * @param name Name of the multiplier  used to determine the effectivness of a Skill against a certain Objectmon with a certain Tyoe
+     */
     private Multiplier(final double value, final String name){
         this.value = value;
         this.name = name;
     }
 
+    /**
+     * 
+     * @return Returns the multiplier of the Multiplier
+     */
     public double getValue() {
         return value;
     }
 
+    /**
+     * 
+     * @return Returns the name of the Multiplier
+     */
     public String getName() {
         return name;
     }
