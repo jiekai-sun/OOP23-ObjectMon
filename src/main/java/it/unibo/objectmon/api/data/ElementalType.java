@@ -36,17 +36,22 @@ public enum ElementalType {
         
     }
     
+    /**
+     * 
+     * @return the id of the Type
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * 
+     * @return the name of the Type
+     */
     public String getName() {
         return name;
     }
 
-    public void setTypeChart(){
-        
-    }
 
     public double typeMultiplier(final int attackerType, final int defenderType){
         return this.typeChart[attackerType][defenderType].getValue();
