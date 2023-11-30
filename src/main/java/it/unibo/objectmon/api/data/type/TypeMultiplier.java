@@ -1,4 +1,4 @@
-package it.unibo.objectmon.api.data;
+package it.unibo.objectmon.api.data.type;
 
 public enum TypeMultiplier {
     E(1,"Effective"),
