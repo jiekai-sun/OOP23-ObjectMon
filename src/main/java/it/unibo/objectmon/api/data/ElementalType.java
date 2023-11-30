@@ -17,6 +17,7 @@ public enum ElementalType {
     private final int id;
     private final String name;
     private final TypeMultiplier[][] typeChart;
+    private static final int NEUTRAL_VALUE = 1;
     
     private ElementalType(final int id, final String name){
         this.id = id;
@@ -70,11 +71,36 @@ public enum ElementalType {
      * @param defenderTypes ElementalTypes of the defending Objetmon
      * @return Returns the effectiveness multiplier of the attacking Skill against the Objectmon's ElementalTypes
      */
-    public double CalcMultiplier(ElementalType moveType, ElementalType[] defenderTypes){
-        double multiplier = 1;
+    public double CalcTypeMatchup(ElementalType moveType, ElementalType[] defenderTypes){
+        double multiplier = NEUTRAL_VALUE;
             for (ElementalType defenderType : defenderTypes) {
                 multiplier *= getTypeMultiplier(moveType.getId(), defenderType.getId());
             }
         return multiplier;
+    }
+
+    /**
+     * 
+     * @param type1 First ElementalType to compare.
+     * @param type2 Second ElementalType to compare.
+     * @return Returns true if they are the same ElementalType, false otherwise.
+     */
+    public boolean isSameElementalType(final ElementalType type1, final ElementalType type2){
+        return type1.getId() == type2.getId();
+    }
+
+    /**
+     * 
+     * @param attackerElementalType ElementalType of the Objectmon.
+     * @param skillElementalType ElementalType of the Skill the Objectmon is using.
+     * @return Returns a multiplier for the SETB. If it's the same returns 1.5 . Returns 1 otherwise.
+     */
+    public double CalcSameElementalTypeBonus(final ElementalType attackerElementalType, final ElementalType skillElementalType){
+        if(isSameElementalType(attackerElementalType,skillElementalType)){
+            return 1.5;
+        }
+        else{
+            return NEUTRAL_VALUE;
+        }
     }
 }
