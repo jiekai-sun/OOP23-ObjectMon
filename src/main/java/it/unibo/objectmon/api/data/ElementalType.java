@@ -16,23 +16,23 @@ public enum ElementalType {
     
     private final int id;
     private final String name;
-    private final Multiplier[][] typeChart;
+    private final TypeMultiplier[][] typeChart;
     
     private ElementalType(final int id, final String name){
         this.id = id;
         this.name = name;    
-        this.typeChart = new Multiplier[][]{
-            new Multiplier[]{Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.N, Multiplier.E, Multiplier.E, Multiplier.E},   //Normal
-            new Multiplier[]{Multiplier.E, Multiplier.N, Multiplier.N, Multiplier.S, Multiplier.N, Multiplier.N, Multiplier.S, Multiplier.S, Multiplier.E, Multiplier.N, Multiplier.E},   //Grass
-            new Multiplier[]{Multiplier.E, Multiplier.S, Multiplier.N, Multiplier.N, Multiplier.E, Multiplier.E, Multiplier.N, Multiplier.N, Multiplier.E, Multiplier.S, Multiplier.E},   //Fire
-            new Multiplier[]{Multiplier.E, Multiplier.N, Multiplier.S, Multiplier.N, Multiplier.E, Multiplier.E, Multiplier.S, Multiplier.S, Multiplier.E, Multiplier.E, Multiplier.E},   //Water
-            new Multiplier[]{Multiplier.E, Multiplier.S, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.N, Multiplier.S, Multiplier.S, Multiplier.E},   //Flying
-            new Multiplier[]{Multiplier.E, Multiplier.S, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.N, Multiplier.N, Multiplier.N, Multiplier.E, Multiplier.E, Multiplier.E},   //Poison
-            new Multiplier[]{Multiplier.E, Multiplier.N, Multiplier.S, Multiplier.E, Multiplier.I, Multiplier.S, Multiplier.E, Multiplier.S, Multiplier.E, Multiplier.N, Multiplier.E},   //Ground
-            new Multiplier[]{Multiplier.E, Multiplier.N, Multiplier.S, Multiplier.N, Multiplier.S, Multiplier.E, Multiplier.N, Multiplier.E, Multiplier.N, Multiplier.S, Multiplier.E},   //Rock
-            new Multiplier[]{Multiplier.S, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.N, Multiplier.N, Multiplier.E, Multiplier.S, Multiplier.E, Multiplier.N, Multiplier.E},   //Fighting
-            new Multiplier[]{Multiplier.E, Multiplier.S, Multiplier.N, Multiplier.E, Multiplier.N, Multiplier.N, Multiplier.E, Multiplier.E, Multiplier.N, Multiplier.E, Multiplier.E},   //Bug
-            new Multiplier[]{Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E, Multiplier.E},   //No Type
+        this.typeChart = new TypeMultiplier[][]{
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //Normal
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E},   //Grass
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E},   //Fire
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //Water
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.S, TypeMultiplier.E},   //Flying
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //Poison
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.I, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E},   //Ground
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.E},   //Rock
+            new TypeMultiplier[]{TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E},   //Fighting
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E},   //Bug
+            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //No Type
         };
         
         
