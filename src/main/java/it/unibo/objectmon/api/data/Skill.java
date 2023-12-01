@@ -1,5 +1,8 @@
 package it.unibo.objectmon.api.data;
 
+import it.unibo.objectmon.api.data.type.DamageType;
+import it.unibo.objectmon.api.data.type.ElementalType;
+
 public class Skill {
     private final int id;
     private final String name;
