@@ -23,16 +23,146 @@ public enum ElementalType {
         this.id = id;
         this.name = name;    
         this.typeChart = new TypeMultiplier[][]{
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //Normal
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E},   //Grass
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E},   //Fire
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //Water
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.S, TypeMultiplier.E},   //Flying
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //Poison
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.I, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E},   //Ground
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.S, TypeMultiplier.E},   //Rock
-            new TypeMultiplier[]{TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E},   //Fighting
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.S, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.N, TypeMultiplier.E, TypeMultiplier.E},   //Bug
+            //Normal
+            new TypeMultiplier[]{   
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E
+            },
+            //Grass
+            new TypeMultiplier[]{
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.N,
+                TypeMultiplier.S,
+                TypeMultiplier.N,
+                TypeMultiplier.N,
+                TypeMultiplier.S,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.E
+            },
+            //Fire
+            new TypeMultiplier[]{
+                TypeMultiplier.E,
+                TypeMultiplier.S,
+                TypeMultiplier.N,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.S,
+                TypeMultiplier.E
+            },
+            //Water
+            new TypeMultiplier[]{   
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.S,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.S,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E
+            },
+            //Flying
+            new TypeMultiplier[]{   
+                TypeMultiplier.E,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.S,
+                TypeMultiplier.S,
+                TypeMultiplier.E
+            },
+            //Poison
+            new TypeMultiplier[]{
+                TypeMultiplier.E,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.N,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E
+            },
+            //Ground
+            new TypeMultiplier[]{
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.I,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.E
+            },   
+            //Rock
+            new TypeMultiplier[]{
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.S,
+                TypeMultiplier.N,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.S,
+                TypeMultiplier.E
+            },   
+            //Fighting
+            new TypeMultiplier[]{
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.S,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.E
+            },   
+            //Bug
+            new TypeMultiplier[]{
+                TypeMultiplier.E,
+                TypeMultiplier.S,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.N,
+                TypeMultiplier.E,
+                TypeMultiplier.E
+            },   
             new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //No Type
         };
         
