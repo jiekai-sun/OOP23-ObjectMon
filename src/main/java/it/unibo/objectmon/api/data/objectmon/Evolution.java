@@ -26,7 +26,7 @@ public class Evolution {
         return isTrade;
     }
 
-    public boolean checkEvolution(final int currentLevel){
+    public boolean canEvolve(final int currentLevel){
         if(getIsLevel().get().containsKey(currentLevel) || getIsStone().isPresent() || getIsTrade().isPresent()){
             return true;
         }
@@ -34,4 +34,5 @@ public class Evolution {
             return false;
         }
     }
+
 } 

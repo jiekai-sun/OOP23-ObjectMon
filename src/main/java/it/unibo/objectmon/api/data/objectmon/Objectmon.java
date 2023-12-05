@@ -1,7 +1,7 @@
 package it.unibo.objectmon.api.data.objectmon;
 
-import it.unibo.objectmon.api.data.type.*;
-import it.unibo.objectmon.api.data.*;
+import it.unibo.objectmon.api.data.Skill;
+import it.unibo.objectmon.api.data.type.ElementalType;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,5 +64,13 @@ public class Objectmon {
 
     public List<ElementalType> getTypes() {
         return types;
+    }
+
+    public void evolveObjectmon(){
+        if(getCanEvolve().isPresent()){
+            if(getCanEvolve().get().canEvolve(currentExp)){
+                //evolve objectmon
+            }
+        }
     }
 }
