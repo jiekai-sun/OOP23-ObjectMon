@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public class MapBuilder {
-    public static List<List<Tile>> buildMap(String pathname) {
+    public static List<List<Tile>> buildMap(final String pathname) {
         InputStream in = ClassLoader.getSystemClassLoader().getResourceAsStream(pathname);
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         String line;

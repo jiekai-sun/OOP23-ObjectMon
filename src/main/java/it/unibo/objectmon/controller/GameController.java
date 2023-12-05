@@ -1,10 +1,13 @@
 package it.unibo.objectmon.controller;
 
 import it.unibo.objectmon.model.GameModel;
-import it.unibo.objectmon.view.GameView;
+import it.unibo.objectmon.view.swing.GameView;
 
+/**
+ * The game engine.
+ */
 public class GameController implements Runnable {
-    private int fps = 60;
+    private static final int FPS = 60;
     private GameModel model;
     private GameView view;
     private Thread gameThread;
@@ -18,7 +21,7 @@ public class GameController implements Runnable {
     }
 
     public void run() {
-        double drawInterval = 1_000_000_000/fps;
+        double drawInterval = 1_000_000_000 / FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -26,12 +29,11 @@ public class GameController implements Runnable {
         int drawCount = 0;
 
         while (gameThread != null) {
-            currentTime = System.nanoTime();
-            
+            currentTime = System.nanoTime();            
             delta += (currentTime - lastTime) / drawInterval;
             timer += (currentTime - lastTime);
             lastTime = currentTime;
-            
+
             if (delta >= 1) {
                 update();
                 view.getFrame().repaint();
@@ -48,16 +50,16 @@ public class GameController implements Runnable {
     }
 
     public void update() {
-        if (view.gameMainScreen.getKeyHandler().isUpPressed() == true) {
+        if (view.gameMainScreen.getKeyHandler().isUpPressed()) {
             model.getPlayerManager().getPlayer().moveUp();
         }
-        if (view.gameMainScreen.getKeyHandler().isDownPressed() == true) {
+        if (view.gameMainScreen.getKeyHandler().isDownPressed()) {
             model.getPlayerManager().getPlayer().moveDown();
         }
-        if (view.gameMainScreen.getKeyHandler().isLeftPressed() == true) {
+        if (view.gameMainScreen.getKeyHandler().isLeftPressed()) {
             model.getPlayerManager().getPlayer().moveLeft();
         }
-        if (view.gameMainScreen.getKeyHandler().isRightPressed() == true) {
+        if (view.gameMainScreen.getKeyHandler().isRightPressed()) {
             model.getPlayerManager().getPlayer().moveRight();
         }
     }

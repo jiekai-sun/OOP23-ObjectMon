@@ -1,4 +1,4 @@
-package it.unibo.objectmon.view;
+package it.unibo.objectmon.view.swing;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -23,12 +23,12 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(final KeyEvent e) {
         /*Nothing happens*/
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(final KeyEvent e) {
         int keyCode = e.getKeyCode();
         if (keyCode == KeyEvent.VK_W) {
             this.upPressed = true;
@@ -45,7 +45,7 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(final KeyEvent e) {
         int keyCode = e.getKeyCode();
         if (keyCode == KeyEvent.VK_W) {
             this.upPressed = false;

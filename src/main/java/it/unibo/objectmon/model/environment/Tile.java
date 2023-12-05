@@ -7,7 +7,7 @@ public enum Tile {
 
     private final String name;
 
-    private Tile(String name) {
+    Tile(final String name) {
         this.name = name;
     }
 

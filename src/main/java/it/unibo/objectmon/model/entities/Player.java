@@ -2,11 +2,11 @@ package it.unibo.objectmon.model.entities;
 
 import it.unibo.objectmon.api.Entity;
 
-public class Player implements Entity{
+public class Player implements Entity {
     private final String name;
     private int x;
     private int y;
-    
+        
     public Player(final String name, final int x, final int y) {
         this.name = name;
         this.x = x;
@@ -36,7 +36,7 @@ public class Player implements Entity{
     public void moveLeft() {
         this.x--;
     }
-    
+
     public void moveRight() {
         this.x++;
     }

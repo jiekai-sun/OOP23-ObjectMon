@@ -1,5 +1,7 @@
 package it.unibo.objectmon.api;
-
+/**
+ * Represent a basic entity that could be the player or an NPC.
+ */
 public interface Entity {
     /**
      * @return entity x position

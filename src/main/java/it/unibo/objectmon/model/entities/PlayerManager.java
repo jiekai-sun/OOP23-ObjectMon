@@ -10,6 +10,5 @@ public class PlayerManager {
 
     public Player getPlayer() {
         return this.player;
-    }
-    
+    }    
 }

@@ -1,4 +1,4 @@
-package it.unibo.objectmon.view;
+package it.unibo.objectmon.view.swing;
 
 import javax.swing.JFrame;
 
@@ -10,7 +10,7 @@ public class GameView {
     public MainScreen gameMainScreen;
     private GameController controller;
 
-    public GameView(GameController controller) {
+    public GameView(final GameController controller) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
         this.controller = controller;
