@@ -158,21 +158,7 @@ public enum ElementalType {
                 TypeMultiplier.N,
                 TypeMultiplier.E,
                 TypeMultiplier.E
-            },
-            //No Type   
-            new TypeMultiplier[]{
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E,
-                TypeMultiplier.E
-            },   
+            }  
         };
 
     private ElementalType(final int id, final String name){
@@ -203,7 +189,7 @@ public enum ElementalType {
      * @return Returns the multiplier applied for that type combination
      */
     private static double getTypeMultiplier(final int attackerType, final int defenderType){
-        return typeChart[attackerType][defenderType].getValue();
+        return attackerType != ElementalType.NULL.getId() ? typeChart[attackerType][defenderType].getValue() : NEUTRAL_VALUE;
     }
 
     /**
