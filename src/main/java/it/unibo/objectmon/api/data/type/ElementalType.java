@@ -30,7 +30,6 @@ public enum ElementalType {
                 TypeMultiplier.E,
                 TypeMultiplier.N,
                 TypeMultiplier.E,
-                TypeMultiplier.E,
                 TypeMultiplier.E
             },
             //Grass
@@ -44,8 +43,7 @@ public enum ElementalType {
                 TypeMultiplier.S,
                 TypeMultiplier.S,
                 TypeMultiplier.E,
-                TypeMultiplier.N,
-                TypeMultiplier.E
+                TypeMultiplier.N
             },
             //Fire
             new TypeMultiplier[]{
@@ -55,11 +53,10 @@ public enum ElementalType {
                 TypeMultiplier.N,
                 TypeMultiplier.E,
                 TypeMultiplier.E,
-                TypeMultiplier.N,
+                TypeMultiplier.E,
                 TypeMultiplier.N,
                 TypeMultiplier.E,
-                TypeMultiplier.S,
-                TypeMultiplier.E
+                TypeMultiplier.S
             },
             //Water
             new TypeMultiplier[]{   
@@ -71,7 +68,6 @@ public enum ElementalType {
                 TypeMultiplier.E,
                 TypeMultiplier.S,
                 TypeMultiplier.S,
-                TypeMultiplier.E,
                 TypeMultiplier.E,
                 TypeMultiplier.E
             },
@@ -86,8 +82,7 @@ public enum ElementalType {
                 TypeMultiplier.E,
                 TypeMultiplier.N,
                 TypeMultiplier.S,
-                TypeMultiplier.S,
-                TypeMultiplier.E
+                TypeMultiplier.S
             },
             //Poison
             new TypeMultiplier[]{
@@ -99,7 +94,6 @@ public enum ElementalType {
                 TypeMultiplier.N,
                 TypeMultiplier.N,
                 TypeMultiplier.N,
-                TypeMultiplier.E,
                 TypeMultiplier.E,
                 TypeMultiplier.E
             },
@@ -114,22 +108,20 @@ public enum ElementalType {
                 TypeMultiplier.E,
                 TypeMultiplier.S,
                 TypeMultiplier.E,
-                TypeMultiplier.N,
-                TypeMultiplier.E
+                TypeMultiplier.N
             },   
             //Rock
             new TypeMultiplier[]{
                 TypeMultiplier.E,
-                TypeMultiplier.N,
+                TypeMultiplier.E,
                 TypeMultiplier.S,
-                TypeMultiplier.N,
+                TypeMultiplier.E,
                 TypeMultiplier.S,
                 TypeMultiplier.E,
                 TypeMultiplier.N,
                 TypeMultiplier.E,
                 TypeMultiplier.N,
-                TypeMultiplier.S,
-                TypeMultiplier.E
+                TypeMultiplier.S
             },   
             //Fighting
             new TypeMultiplier[]{
@@ -142,8 +134,7 @@ public enum ElementalType {
                 TypeMultiplier.E,
                 TypeMultiplier.S,
                 TypeMultiplier.E,
-                TypeMultiplier.N,
-                TypeMultiplier.E
+                TypeMultiplier.N
             },   
             //Bug
             new TypeMultiplier[]{
@@ -156,7 +147,6 @@ public enum ElementalType {
                 TypeMultiplier.E,
                 TypeMultiplier.E,
                 TypeMultiplier.N,
-                TypeMultiplier.E,
                 TypeMultiplier.E
             }  
         };
@@ -189,7 +179,7 @@ public enum ElementalType {
      * @return Returns the multiplier applied for that type combination
      */
     private static double getTypeMultiplier(final int attackerType, final int defenderType){
-        return attackerType != ElementalType.NULL.getId() ? typeChart[attackerType][defenderType].getValue() : NEUTRAL_VALUE;
+        return attackerType != ElementalType.NULL.getId() && defenderType != ElementalType.NULL.getId() ? typeChart[attackerType][defenderType].getValue() : TypeMultiplier.E.getValue();
     }
 
     /**
