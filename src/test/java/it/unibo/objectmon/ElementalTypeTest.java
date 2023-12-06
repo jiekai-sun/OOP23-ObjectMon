@@ -86,7 +86,39 @@ public class ElementalTypeTest {
                 ElementalType.GRASS
             }
         ));
+    }
 
+    /**
+     * 
+     */
+    @Test
+    void testIsSameType(){
+        for (ElementalType type1 : ElementalType.values()) {
+            for (ElementalType type2 : ElementalType.values()) {
+                if(type1 == type2){
+                    assertEquals(true,ElementalType.isSameElementalType(type1, type2));
+                }
+                else{
+                    assertEquals(false,ElementalType.isSameElementalType(type1, type2));
+                }
+            }    
+        }
+    }
+
+    @Test
+    void testSameTypeBonus(){
+        double sameTypeBonus = 1.5;
+        double notSameTypeBonus = 1;
+        for (ElementalType type1 : ElementalType.values()) {
+            for (ElementalType type2 : ElementalType.values()) {
+                if(type1 == type2){
+                    assertEquals(sameTypeBonus,ElementalType.CalcSameElementalTypeBonus(type1, type2));
+                }
+                else{
+                    assertEquals(notSameTypeBonus,ElementalType.CalcSameElementalTypeBonus(type1, type2));
+                }
+            }    
+        }
     }
 
     /**
