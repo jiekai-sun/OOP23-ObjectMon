@@ -16,13 +16,9 @@ public enum ElementalType {
     
     private final int id;
     private final String name;
-    private final TypeMultiplier[][] typeChart;
     private static final int NEUTRAL_VALUE = 1;
     
-    private ElementalType(final int id, final String name){
-        this.id = id;
-        this.name = name;    
-        this.typeChart = new TypeMultiplier[][]{
+    private static final TypeMultiplier[][] typeChart = new TypeMultiplier[][]{
             //Normal
             new TypeMultiplier[]{   
                 TypeMultiplier.E,
@@ -178,8 +174,10 @@ public enum ElementalType {
                 TypeMultiplier.E
             },   
         };
-        
-        
+
+    private ElementalType(final int id, final String name){
+        this.id = id;
+        this.name = name;
     }
     
     /**
@@ -204,20 +202,20 @@ public enum ElementalType {
      * @param defenderType Id of the ElementalType of the defending Objectmon
      * @return Returns the multiplier applied for that type combination
      */
-    public double getTypeMultiplier(final int attackerType, final int defenderType){
-        return this.typeChart[attackerType][defenderType].getValue();
+    private static double getTypeMultiplier(final int attackerType, final int defenderType){
+        return typeChart[attackerType][defenderType].getValue();
     }
 
     /**
      * 
      * @param moveType ElementalType of the attacking Objectmon's Skill
-     * @param defenderTypes ElementalTypes of the defending Objetmon
+     * @param defTypes ElementalTypes of the defending Objetmon
      * @return Returns the effectiveness multiplier of the attacking Skill against the Objectmon's ElementalTypes
      */
-    public double CalcTypeMatchup(ElementalType moveType, ElementalType[] defenderTypes){
+    public static double CalcTypeMatchup(ElementalType moveType, ElementalType[] defenderTypes){
         double multiplier = NEUTRAL_VALUE;
-            for (ElementalType defenderType : defenderTypes) {
-                multiplier *= getTypeMultiplier(moveType.getId(), defenderType.getId());
+            for (ElementalType defType : defenderTypes) {
+                multiplier *= getTypeMultiplier(moveType.id, defType.id);
             }
         return multiplier;
     }
