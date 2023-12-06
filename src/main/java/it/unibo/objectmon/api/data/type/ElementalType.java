@@ -162,8 +162,21 @@ public enum ElementalType {
                 TypeMultiplier.N,
                 TypeMultiplier.E,
                 TypeMultiplier.E
+            },
+            //No Type   
+            new TypeMultiplier[]{
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E,
+                TypeMultiplier.E
             },   
-            new TypeMultiplier[]{TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E, TypeMultiplier.E},   //No Type
         };
         
         
