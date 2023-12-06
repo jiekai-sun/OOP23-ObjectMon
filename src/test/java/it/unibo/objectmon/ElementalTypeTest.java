@@ -299,7 +299,7 @@ public class ElementalTypeTest {
      * Test if the multipliers are of the expected value for Null
      */
     @Test
-    void testChart(){
+    void testNullChart(){
         ElementalType skillType = ElementalType.NULL;
         for (ElementalType element : ElementalType.values()) {
             assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
