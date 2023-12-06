@@ -16,7 +16,6 @@ public class ElementalTypeTest {
     public final static int ROCKID = 7;
     public final static int FIGHTINGID = 8;
     public final static int BUGID = 9;
-    public final static int NULLID = 10;
 
 
     /**
@@ -54,9 +53,40 @@ public class ElementalTypeTest {
         
         assertEquals(BUGID, ElementalType.BUG.getId());  
         assertEquals("Bug", ElementalType.BUG.getName());
-        
-        assertEquals(NULLID, ElementalType.NULL.getId());  
-        assertEquals("", ElementalType.NULL.getName());
+    }
+
+    @Test
+    void testMultipliers(){
+        //a GROUND skill is x2 against ROCK, but FLYING is immune to GROUND, so the result should be 0
+        int expectedValue = 0;
+        assertEquals(expectedValue,ElementalType.CalcTypeMatchup(
+            ElementalType.GROUND,
+            new ElementalType[]{
+                ElementalType.ROCK,
+                ElementalType.FLYING
+            }
+        ));
+
+        //a FLYING skill is x2 against BUG and GRASS, so the result should be 4
+        expectedValue = 4;
+        assertEquals(expectedValue,ElementalType.CalcTypeMatchup(
+            ElementalType.FLYING,
+            new ElementalType[]{
+                ElementalType.BUG,
+                ElementalType.GRASS
+            }
+        ));
+
+        //a FIRE skill is x0.5 against WATER, but x2 against GRASS, so the result should be 1
+        expectedValue = 1;
+        assertEquals(expectedValue,ElementalType.CalcTypeMatchup(
+            ElementalType.FIRE,
+            new ElementalType[]{
+                ElementalType.WATER,
+                ElementalType.GRASS
+            }
+        ));
+
     }
 
     /**
@@ -68,10 +98,10 @@ public class ElementalTypeTest {
         for (ElementalType element : ElementalType.values()) {
             //Rock type is the only ElementalType which isn't effective (not very effective)
             if(element.getId() != ROCKID){
-                assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
             }
             else{
-                assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
             }
         }
     }
@@ -86,15 +116,15 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case GRASSID,FIREID,FLYINGID,POISONID,BUGID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case WATERID,GROUNDID,ROCKID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
@@ -110,15 +140,15 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case FIREID,WATERID,ROCKID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case GRASSID,BUGID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
@@ -134,15 +164,15 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case GRASSID,WATERID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case FIREID,GROUNDID,ROCKID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
@@ -158,15 +188,15 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case ROCKID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case GRASSID,FIGHTINGID,BUGID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
@@ -182,15 +212,15 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case POISONID,GROUNDID,ROCKID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case GRASSID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
@@ -206,18 +236,18 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case GRASSID,BUGID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case FIREID,POISONID,ROCKID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 case FLYINGID:
-                    assertEquals(0,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(0,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                 break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
@@ -233,15 +263,15 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case GROUNDID,FIGHTINGID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case FIREID,FLYINGID,BUGID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
@@ -257,15 +287,15 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case POISONID,FLYINGID,BUGID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case NORMALID,ROCKID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
@@ -281,29 +311,17 @@ public class ElementalTypeTest {
             switch (element.getId()) {
                 //Should be not effective
                 case FIREID,FIGHTINGID,POISONID,FLYINGID: 
-                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));    
+                    assertEquals(0.5,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));    
                     break;
                 //Should be super effective
                 case GRASSID:     
-                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(2,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
                 //Should be effective
                 default:        
-                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
+                    assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element}));
                     break;
             }
         }
     }
-
-    /**
-     * Test if the multipliers are of the expected value for Null
-     */
-    @Test
-    void testNullChart(){
-        ElementalType skillType = ElementalType.NULL;
-        for (ElementalType element : ElementalType.values()) {
-            assertEquals(1,ElementalType.CalcTypeMatchup(skillType, new ElementalType[]{element,ElementalType.NULL}));
-        }
-    }
-
 }

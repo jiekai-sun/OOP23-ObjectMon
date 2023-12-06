@@ -11,8 +11,7 @@ public enum ElementalType {
     GROUND(6,"Ground"),
     ROCK(7,"Rock"),
     FIGHTING(8,"Fighting"),
-    BUG(9,"Bug"),
-    NULL(10,"");
+    BUG(9,"Bug");
     
     private final int id;
     private final String name;
@@ -179,7 +178,7 @@ public enum ElementalType {
      * @return Returns the multiplier applied for that type combination
      */
     private static double getTypeMultiplier(final int attackerType, final int defenderType){
-        return attackerType != ElementalType.NULL.getId() && defenderType != ElementalType.NULL.getId() ? typeChart[attackerType][defenderType].getValue() : TypeMultiplier.E.getValue();
+        return typeChart[attackerType][defenderType].getValue();
     }
 
     /**
