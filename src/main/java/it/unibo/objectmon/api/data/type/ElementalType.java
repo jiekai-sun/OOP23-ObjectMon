@@ -15,7 +15,8 @@ public enum ElementalType {
     
     private final int id;
     private final String name;
-    private static final int NEUTRAL_VALUE = 1;
+    private static final double NEUTRAL_VALUE = 1.0;
+    private static final double SAME_TYPE_BONUS = 1.5;
     
     private static final TypeMultiplier[][] typeChart = new TypeMultiplier[][]{
             //Normal
@@ -187,7 +188,7 @@ public enum ElementalType {
      * @param defTypes ElementalTypes of the defending Objetmon
      * @return Returns the effectiveness multiplier of the attacking Skill against the Objectmon's ElementalTypes
      */
-    public static double CalcTypeMatchup(ElementalType moveType, ElementalType[] defenderTypes){
+    public static double calcTypeMatchup(ElementalType moveType, ElementalType[] defenderTypes){
         double multiplier = NEUTRAL_VALUE;
             for (ElementalType defType : defenderTypes) {
                 multiplier *= getTypeMultiplier(moveType.id, defType.id);
@@ -211,9 +212,9 @@ public enum ElementalType {
      * @param skillElementalType ElementalType of the Skill the Objectmon is using.
      * @return Returns a multiplier for the SETB. If it's the same returns 1.5 . Returns 1 otherwise.
      */
-    public static double CalcSameElementalTypeBonus(final ElementalType attackerElementalType, final ElementalType skillElementalType){
+    public static double calcSameElementalTypeBonus(final ElementalType attackerElementalType, final ElementalType skillElementalType){
         if(isSameElementalType(attackerElementalType,skillElementalType)){
-            return 1.5;
+            return SAME_TYPE_BONUS;
         }
         else{
             return NEUTRAL_VALUE;

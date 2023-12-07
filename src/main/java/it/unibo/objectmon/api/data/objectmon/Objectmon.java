@@ -22,53 +22,60 @@ public class Objectmon {
     public Objectmon(final int id, final String name, final List<ElementalType> types, final List<Skill> learnList, final int expOnDeath, final int maxExp, final Optional<Evolution> canEvolve, final List<Skill> knownSkills) {
         this.id = id;
         this.name = name;
-        this.types = types;
-        this.learnList = learnList;
+        this.types = List.copyOf(types);
+        this.learnList = List.copyOf(learnList);
         this.expOnDeath = expOnDeath;
         this.maxExp = maxExp;
         this.canEvolve = canEvolve;
-        this.knownSkills = knownSkills;
+        this.knownSkills = List.copyOf(knownSkills);
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getCurrentExp() {
-        return currentExp;
+        return this.currentExp;
+    }
+
+    public void setCurrentExp(int gainedExp) {
+        this.currentExp = this.currentExp+gainedExp >= getMaxExp() ? this.currentExp + gainedExp - getMaxExp() : this.currentExp + gainedExp;
     }
 
     public int getMaxExp() {
-        return maxExp;
+        return this.maxExp;
     }
 
     public List<Skill> getKnownSkills() {
-        return knownSkills;
+        return List.copyOf(this.knownSkills);
     }
 
     public Optional<Evolution> getCanEvolve() {
-        return canEvolve;
+        return this.canEvolve;
     }
 
     public int getExpOnDeath() {
-        return expOnDeath;
+        return this.expOnDeath;
     }
 
     public List<Skill> getLearnList() {
-        return learnList;
+        return List.copyOf(this.learnList);
     }
 
     public List<ElementalType> getTypes() {
-        return types;
+        return List.copyOf(this.types);
     }
 
     public void evolveObjectmon(){
+        Object doNothing;
         if(getCanEvolve().isPresent()){
             if(getCanEvolve().get().canEvolve(currentExp)){
+                //THIS IS A TEMPORARY WORKAROUND FOR SPOTBUGS, BECAUSE THE EVOLUTION OF A ONJECTMON HASN'T BEEN IMPLEMENTED YET
+                doNothing = null;
                 //evolve objectmon
             }
         }

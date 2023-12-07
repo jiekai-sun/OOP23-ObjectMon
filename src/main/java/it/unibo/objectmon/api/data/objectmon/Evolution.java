@@ -3,15 +3,21 @@ package it.unibo.objectmon.api.data.objectmon;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * 
+ */
 public class Evolution {
     private final Optional<Map<Integer, Boolean>> isLevel;
     private final Optional<Boolean> isStone;
     private final Optional<Boolean> isTrade;
-    
-    public Evolution(final Optional<Map<Integer,Boolean>> isLevel, final Optional<Boolean> isStone, final Optional<Boolean> isTrade) {
-        this.isLevel = isLevel;
-        this.isStone = isStone;
-        this.isTrade = isTrade;
+
+    public Evolution(
+        final Optional<Map<Integer, Boolean>> isLevel,
+        final Optional<Boolean> isStone, final Optional<Boolean> isTrade
+        ) {
+            this.isLevel = isLevel;
+            this.isStone = isStone;
+            this.isTrade = isTrade;
     }
 
     public Optional<Map<Integer, Boolean>> getIsLevel() {
